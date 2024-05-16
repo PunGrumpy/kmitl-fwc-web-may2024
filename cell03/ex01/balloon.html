@@ -25,17 +25,29 @@
   <body>
     <div
       class="balloon"
-      onclick="balloonAnimated(this)"
-      onmouseleave="balloonAnimated(this)"
+      onclick="increaseBalloonAnimated(this)"
+      onmouseleave="decreaseBalloonAnimated(this)"
     ></div>
   </body>
   <script>
     let i = 0;
 
-    const balloonAnimated = (el) => {
+    const increaseBalloonAnimated = (el) => {
       if (el.offsetWidth < 420) {
         el.style.width = `${el.offsetWidth + 10}px`;
         el.style.height = `${el.offsetHeight + 10}px`;
+      } else {
+        el.style.width = "200px";
+        el.style.height = "200px";
+      }
+
+      changeColor(el);
+    };
+
+    const decreaseBalloonAnimated = (el) => {
+      if (el.offsetWidth > 200) {
+        el.style.width = `${el.offsetWidth - 5}px`;
+        el.style.height = `${el.offsetHeight - 5}px`;
       } else {
         el.style.width = "200px";
         el.style.height = "200px";
