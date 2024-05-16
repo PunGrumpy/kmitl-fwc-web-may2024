@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42 Bangkok - Web Development</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        background-color: #000;
+      }
+
+      .balloon {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background-color: #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="balloon"
+      onclick="increaseBalloonAnimated(this)"
+      onmouseleave="decreaseBalloonAnimated(this)"
+    ></div>
+  </body>
+  <script>
+    let i = 0;
+
+    const increaseBalloonAnimated = (el) => {
+      if (el.offsetWidth < 420) {
+        el.style.width = `${el.offsetWidth + 10}px`;
+        el.style.height = `${el.offsetHeight + 10}px`;
+      } else {
+        el.style.width = "200px";
+        el.style.height = "200px";
+      }
+
+      changeColor(el);
+    };
+
+    const decreaseBalloonAnimated = (el) => {
+      if (el.offsetWidth > 200) {
+        el.style.width = `${el.offsetWidth - 5}px`;
+        el.style.height = `${el.offsetHeight - 5}px`;
+      } else {
+        el.style.width = "200px";
+        el.style.height = "200px";
+      }
+
+      changeColor(el);
+    };
+
+    const changeColor = (el) => {
+      el.style.backgroundColor =
+        i === 0 ? "#00ff00" : i === 1 ? "#00f" : "#f00";
+      i = (i + 1) % 3;
+    };
+  </script>
+</html>
