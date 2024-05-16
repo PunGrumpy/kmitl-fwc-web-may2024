@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basic Calculator</title>
-    <style></style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   </head>
   <body>
     <div>
@@ -32,58 +32,49 @@
     </div>
 
     <script>
-      const num1 = document.getElementById("num1");
-      const num2 = document.getElementById("num2");
-      const operator = document.getElementById("operator");
-      const calculateBtn = document.getElementById("calculate");
-      const resultDiv = document.getElementById("result");
-
-      calculateBtn.addEventListener("click", () => {
-        const n1 = parseInt(num1.value);
-        const n2 = parseInt(num2.value);
-
-        if (isNaN(n1) || isNaN(n2) || n1 < 0 || n2 < 0) {
-          alert("Error :(");
-          return;
-        }
-
-        let res;
-
-        switch (operator.value) {
-          case "+":
-            res = n1 + n2;
-            break;
-          case "-":
-            res = n1 - n2;
-            break;
-          case "*":
-            res = n1 * n2;
-            break;
-          case "/":
-            if (n2 === 0) {
-              alert("It's over 9000!");
-              return;
-            }
-            res = n1 / n2;
-            break;
-          case "%":
-            if (n2 === 0) {
-              alert("It's over 9000!");
-              return;
-            }
-            res = n1 % n2;
-            break;
-          default:
+      $(document).ready(() => {
+        $("#calculate").click(() => {
+          const n1 = parseInt($("#num1").val());
+          const n2 = parseInt($("#num2").val());
+          if (isNaN(n1) || isNaN(n2) || n1 < 0 || n2 < 0) {
+            alert("Error :(");
             return;
-        }
-
-        resultDiv.innerHTML = `Result: ${res}`;
-        console.log("Result:", res);
+          }
+          let res;
+          switch ($("#operator").val()) {
+            case "+":
+              res = n1 + n2;
+              break;
+            case "-":
+              res = n1 - n2;
+              break;
+            case "*":
+              res = n1 * n2;
+              break;
+            case "/":
+              if (n2 === 0) {
+                alert("It's over 9000!");
+                return;
+              }
+              res = n1 / n2;
+              break;
+            case "%":
+              if (n2 === 0) {
+                alert("It's over 9000!");
+                return;
+              }
+              res = n1 % n2;
+              break;
+            default:
+              return;
+          }
+          $("#result").html(`Result: ${res}`);
+          console.log("Result:", res);
+        });
+        setInterval(() => {
+          alert("Please, use me...");
+        }, 30000);
       });
-
-      setInterval(() => {
-        alert("Please, use me...");
-      }, 30000);
     </script>
   </body>
 </html>

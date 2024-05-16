@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>42 Bangkok - Web Development</title>
     <link rel="stylesheet" href="backgroound.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   </head>
   <body>
     <button class="btn">Click Me</button>
   </body>
   <script>
-    const btn = document.querySelector(".btn");
-    btn.addEventListener("click", () => {
+    $(".btn").click(() => {
       const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-      document.body.style.backgroundColor = `#${randomColor}`;
+      $("body").css("background-color", `#${randomColor}`);
     });
   </script>
 </html>

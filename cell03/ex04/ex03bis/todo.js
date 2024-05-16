@@ -1,47 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const todoList = document.getElementById("todo-list");
-  const addButton = document.querySelector(".add-todo__button");
-
+$(document).ready(function () {
+  const todoList = $("#todo-list");
+  const addButton = $(".add-todo__button");
+  const dialogConfirm = $("#dialog-confirm");
   loadTodos();
 
-  addButton.addEventListener("click", function () {
-    const newTodo = prompt("Enter new todo:");
+  addButton.on("click", function () {
+    const newTodo = prompt("Enter new ToDo:");
     if (newTodo) {
       addTodoToList(newTodo);
     }
   });
 
   function addTodoToList(todoText) {
-    const todoItem = document.createElement("li");
-    todoItem.textContent = todoText;
-    todoItem.classList.add("todo-item");
-
-    todoItem.addEventListener("click", function () {
-      const confirmDelete = confirm("Do you want to remove this todo?");
-      if (confirmDelete) {
-        todoList.removeChild(todoItem);
-        saveTodos();
-      }
-    });
-
-    todoList.insertBefore(todoItem, todoList.firstChild);
+    const todoItem = $("<li>")
+      .text(todoText)
+      .addClass("todo-item")
+      .on("click", function () {
+        const todoText = $(this).text();
+        showDialogConfirm(todoText);
+      });
+    todoList.prepend(todoItem);
     saveTodos();
   }
 
+  function showDialogConfirm(todoText) {
+    dialogConfirm.show();
+    $("#confirm-yes").on("click", function () {
+      removeTodoFromList(todoText);
+      dialogConfirm.hide();
+    });
+    $("#confirm-no").on("click", function () {
+      dialogConfirm.hide();
+    });
+  }
+
+  function removeTodoFromList(todoText) {
+    const todoItems = $(".todo-item");
+    todoItems.each(function () {
+      if ($(this).text() === todoText) {
+        $(this).remove();
+        saveTodos();
+      }
+    });
+  }
+
   function saveTodos() {
-    const todos = Array.from(todoList.querySelectorAll(".todo-item")).map(
-      (item) => item.textContent,
-    );
-    document.cookie = `todos=${JSON.stringify(todos)}`;
+    const todos = todoList.find(".todo-item").map(function () {
+      return $(this).text();
+    });
+    document.cookie = `todos=${JSON.stringify(todos.get())}`;
   }
 
   function loadTodos() {
     const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
     const todoCookie = cookies.find((cookie) => cookie.startsWith("todos="));
-
     if (todoCookie) {
       const todos = JSON.parse(todoCookie.split("=")[1]);
-      todos.forEach((todo) => addTodoToList(todo));
+      todos.reverse().forEach((todo) => addTodoToList(todo));
     }
   }
 });
