@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo list</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .list {
+        margin-top: 20px;
+      }
+
+      .list ul {
+        list-style: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">todo list</h1>
+      <div align="center">
+        <button class="add-todo__button">add todo</button>
+      </div>
+      <div class="list">
+        <ul id="todo-list"></ul>
+      </div>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>
