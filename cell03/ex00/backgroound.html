@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42 Bangkok - Web Development</title>
+    <link rel="stylesheet" href="backgroound.css" />
+  </head>
+  <body>
+    <button class="btn">Click Me</button>
+  </body>
+  <script>
+    const btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      const button = document.querySelector(".btn");
+      document.body.style.backgroundColor = `#${randomColor}`;
+    });
+  </script>
+</html>
