@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Calculator</title>
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <input
+        type="text"
+        id="num1"
+        pattern="[0-9]*"
+        placeholder="Enter a positive integer"
+      />
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+      </select>
+      <input
+        type="text"
+        id="num2"
+        pattern="[0-9]*"
+        placeholder="Enter a positive integer"
+      />
+      <input type="button" value="Try me!" id="calculate" />
+      <div id="result"></div>
+    </div>
+
+    <script>
+      const num1 = document.getElementById("num1");
+      const num2 = document.getElementById("num2");
+      const operator = document.getElementById("operator");
+      const calculateBtn = document.getElementById("calculate");
+      const resultDiv = document.getElementById("result");
+
+      calculateBtn.addEventListener("click", () => {
+        const n1 = parseInt(num1.value);
+        const n2 = parseInt(num2.value);
+
+        if (isNaN(n1) || isNaN(n2) || n1 < 0 || n2 < 0) {
+          alert("Error :(");
+          return;
+        }
+
+        let res;
+
+        switch (operator.value) {
+          case "+":
+            res = n1 + n2;
+            break;
+          case "-":
+            res = n1 - n2;
+            break;
+          case "*":
+            res = n1 * n2;
+            break;
+          case "/":
+            if (n2 === 0) {
+              alert("It's over 9000!");
+              return;
+            }
+            res = n1 / n2;
+            break;
+          case "%":
+            if (n2 === 0) {
+              alert("It's over 9000!");
+              return;
+            }
+            res = n1 % n2;
+            break;
+          default:
+            return;
+        }
+
+        resultDiv.innerHTML = `Result: ${res}`;
+        console.log("Result:", res);
+      });
+
+      setInterval(() => {
+        alert("Please, use me...");
+      }, 30000);
+    </script>
+  </body>
+</html>
