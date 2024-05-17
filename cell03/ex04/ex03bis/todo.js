@@ -45,17 +45,21 @@ $(document).ready(function () {
   }
 
   function saveTodos() {
-    const todos = todoList.find(".todo-item").map(function () {
-      return $(this).text();
-    });
-    document.cookie = `todos=${JSON.stringify(todos.get())}`;
+    const todos = todoList
+      .find(".todo-item")
+      .map(function () {
+        return $(this).text();
+      })
+      .get();
+    const encodedTodos = encodeURIComponent(JSON.stringify(todos));
+    document.cookie = `todos=${encodedTodos}; path=/`;
   }
 
   function loadTodos() {
     const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
     const todoCookie = cookies.find((cookie) => cookie.startsWith("todos="));
     if (todoCookie) {
-      const todos = JSON.parse(todoCookie.split("=")[1]);
+      const todos = JSON.parse(decodeURIComponent(todoCookie.split("=")[1]));
       todos.reverse().forEach((todo) => addTodoToList(todo));
     }
   }
