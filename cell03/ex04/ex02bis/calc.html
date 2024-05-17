@@ -34,12 +34,16 @@
     <script>
       $(document).ready(() => {
         $("#calculate").click(() => {
-          const n1 = parseInt($("#num1").val());
-          const n2 = parseInt($("#num2").val());
-          if (isNaN(n1) || isNaN(n2) || n1 < 0 || n2 < 0) {
+          const num1 = $("#num1").val();
+          const num2 = $("#num2").val();
+
+          if (!isValidPositiveInteger(num1) || !isValidPositiveInteger(num2)) {
             alert("Error :(");
             return;
           }
+
+          const n1 = parseInt(num1);
+          const n2 = parseInt(num2);
           let res;
           switch ($("#operator").val()) {
             case "+":
@@ -71,10 +75,16 @@
           $("#result").html(`Result: ${res}`);
           console.log("Result:", res);
         });
+
         setInterval(() => {
           alert("Please, use me...");
         }, 30000);
       });
+
+      function isValidPositiveInteger(value) {
+        const num = parseInt(value);
+        return !isNaN(num) && num.toString() === value && num >= 0;
+      }
     </script>
   </body>
 </html>
