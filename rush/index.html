@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rush Project 🏃‍♂️</title>
+    <meta
+      name="description"
+      content="A team of enthusiastic students who are passionate about technology, gaming, and music."
+    />
+    <meta
+      name="keywords"
+      content="rush project, 42 Bangkok, computer science, technology, gaming, music"
+    />
+    <meta name="author" content="tpongman, nokaewsa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563EB" />
+    <meta property="og:title" content="Rush Project 🏃‍♂️" />
+    <meta
+      property="og:description"
+      content="A team of enthusiastic students who are passionate about technology, gaming, and music."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="tailwind.config.js" defer></script>
+  </head>
+  <body class="dark:bg-gray-900 dark:text-gray-100 transition-all duration-500">
+    <nav
+      class="fixed top-0 left-0 right-0 bg-white bg-opacity-30 dark:bg-gray-800 dark:bg-opacity-30 text-black dark:text-white shadow-lg p-4 backdrop-blur-lg z-50 transition-colors duration-500"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <div
+          class="flex items-center text-sm md:text-base space-x-2 md:space-x-12"
+        >
+          <div class="text-lg font-bold">
+            <a href="#">Rush Project</a>
+          </div>
+          <ul class="flex space-x-4">
+            <li><a href="#" class="hover:text-blue-500">Home</a></li>
+            <li><a href="#member" class="hover:text-blue-500">Members</a></li>
+            <li><a href="#about" class="hover:text-blue-500">About</a></li>
+          </ul>
+        </div>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="p-2 rounded-full transition-colors duration-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            class="hidden dark:block w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+              class="fill-sky-400/20"
+            ></path>
+            <path
+              d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+              class="fill-sky-500"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+              class="fill-sky-500"
+            ></path>
+          </svg>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-6 h-6 block dark:hidden"
+          >
+            <path
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              class="fill-sky-400/20 stroke-sky-500"
+            ></path>
+            <path
+              d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+              class="stroke-sky-500"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="home" class="container mx-auto mt-24 p-4">
+      <h1
+        class="text-4xl font-bold text-center my-12 text-blue-600 dark:text-blue-400"
+        id="member"
+      >
+        Welcome to Our Website
+      </h1>
+      <div class="flex flex-wrap justify-center">
+        <!-- Profile Card: Noppakorn Kaewsalabnil -->
+        <div class="w-full md:w-1/2 lg:w-1/4 p-4">
+          <a href="nokaewsa/index.html" class="block h-full">
+            <div
+              class="bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 shadow-lg rounded-lg p-6 backdrop-blur-lg transition-transform transform hover:scale-105 duration-300 h-full flex flex-col"
+            >
+              <img
+                src="assets/nokaewsa.png"
+                alt="Noppakorn Kaewsalabnil"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-2xl font-bold mb-2">Noppakorn Kaewsalabnil</h2>
+              <p class="text-gray-700 dark:text-gray-300 mb-2">
+                Computer Science student
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 flex-grow">
+                Passionate gamer and Apex Legends enthusiast
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Profile Card: Teachin Pongmanee -->
+        <div class="w-full md:w-1/2 lg:w-1/4 p-4">
+          <a href="tpongman/index.html" class="block h-full">
+            <div
+              class="bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 shadow-lg rounded-lg p-6 backdrop-blur-lg transition-transform transform hover:scale-105 duration-300 h-full flex flex-col"
+            >
+              <img
+                src="assets/tpongman.png"
+                alt="Teachin Pongmanee"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 class="text-2xl font-bold mb-2">Teachin Pongmanee</h2>
+              <p class="text-gray-700 dark:text-gray-300 mb-2">
+                Computer Science student
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 flex-grow">
+                Music lover and an active Youtuber
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="about" class="container mx-auto my-8 p-4">
+      <h2
+        class="text-3xl font-bold text-center my-10 text-blue-600 dark:text-blue-400"
+      >
+        About Us
+      </h2>
+      <p class="text-gray-700 dark:text-gray-300 text-center max-w-2xl mx-auto">
+        Welcome to our Rush Project website. We are a team of enthusiastic
+        students who are passionate about technology, gaming, and music. Our
+        mission is to share our interests and projects with the world. Explore
+        our site to learn more about each member and their unique contributions.
+      </p>
+    </div>
+
+    <footer class="text-center py-4 mt-10">
+      <p class="text-gray-600 dark:text-gray-400">
+        &copy; 2024 tpongman and nokeawsal. All Rights Reserved.
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+      const title = document.title
+      let index = 0
+      setInterval(() => {
+        document.title = title.slice(index) + ' ' + title.slice(0, index)
+        index = (index + 1) % title.length
+      }, 300)
+    </script>
+  </body>
+</html>
