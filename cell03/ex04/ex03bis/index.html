@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        background-color: #f8f9fa;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .title {
+        text-align: center;
+      }
+      .list {
+        margin-top: 20px;
+      }
+      .todo-item {
+        cursor: pointer;
+      }
+      .dialog-confirm {
+        display: none;
+        background: #fff;
+        padding: 20px;
+        border: rgba(0, 0, 0, 0.2) 1px solid;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+      }
+      .dialog-confirm h2 {
+        margin-top: 0;
+      }
+      .dialog-confirm button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">ToDo List</h1>
+      <div align="center">
+        <button class="add-todo__button">Add ToDo</button>
+      </div>
+      <div class="list">
+        <ul id="todo-list"></ul>
+      </div>
+    </div>
+
+    <div class="dialog-confirm" id="dialog-confirm">
+      <h2>Confirm Removal</h2>
+      <p>Are you sure you want to remove this ToDo?</p>
+      <button id="confirm-yes">Yes</button>
+      <button id="confirm-no">No</button>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>

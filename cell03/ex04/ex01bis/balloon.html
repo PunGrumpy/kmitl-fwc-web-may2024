@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42 Bangkok - Web Development</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        background-color: #000;
+      }
+
+      .balloon {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background-color: #f00;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <div
+      class="balloon"
+      onclick="increaseBalloonAnimated(this)"
+      onmouseleave="decreaseBalloonAnimated(this)"
+    ></div>
+  </body>
+  <script>
+    $(document).ready(() => {
+      let i = 0;
+      $(".balloon").click(function () {
+        if ($(this).width() < 420) {
+          $(this).width($(this).width() + 10);
+          $(this).height($(this).height() + 10);
+        } else {
+          $(this).width(200);
+          $(this).height(200);
+        }
+        $(this).css("background-color", () => {
+          return i === 0 ? "#00ff00" : i === 1 ? "#00f" : "#f00";
+        });
+        i = (i + 1) % 3;
+      });
+      $(".balloon").mouseleave(function () {
+        if ($(this).width() > 200) {
+          $(this).width($(this).width() - 5);
+          $(this).height($(this).height() - 5);
+        } else {
+          $(this).width(200);
+          $(this).height(200);
+        }
+        $(this).css("background-color", () => {
+          return i === 0 ? "#00ff00" : i === 1 ? "#00f" : "#f00";
+        });
+        i = (i + 1) % 3;
+      });
+    });
+  </script>
+</html>
